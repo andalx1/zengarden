@@ -1,0 +1,268 @@
+@import url("https://fonts.googleapis.com/css2?family=Merienda&display=swap");
+
+/*--------------------------------------------------------------
+ *  VARIABLES:
+ *--------------------------------------------------------------*/
+
+/*===================== Typography ===================*/
+$font-sans-serif: "sen", sans-serif;
+$font-family: $font-sans-serif;
+$font-size: 1.2rem;
+$font-weight: 400;
+$line-height: 1.6;
+
+/*====================== Colors ===================== */
+$bg-color: lighten(#d0cece, 15%);
+$brown-color: #2d2922;
+$beige-color: #ecdbb6;
+$blue-color: #4974a5;
+$purple-color: #7a49a5;
+$body-color: darker($brown-color, 5%);
+$heading__color: $beige-color;
+$bg-heading__color: $blue-color;
+
+/*=================== Measurements ================== */
+$max-width: 1024px;
+
+/*--------------------------------------------------------------
+ *  GLOBALS:
+ *--------------------------------------------------------------*/
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: $font-size;
+    font-family: $font-family;
+    font-weight: $font-weight;
+    line-height: $line-height;
+    background-color: $bg-color;
+}
+
+h1,
+h2 {
+    font-family: "Merienda", cursive;
+    text-align: center;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-top: 0;
+    color: $brown-color;
+    padding: 0;
+    font-weight: 900;
+}
+
+h2 {
+    font-weight: 300;
+    font-size: 1.3em;
+}
+
+h3 {
+    text-transform: uppercase;
+    font-size: 1.2em;
+    color: $heading__color;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    background-color: $bg-heading__color;
+}
+
+ul li {
+    list-style-type: none;
+    font-size: 12px;
+}
+
+a {
+    color: $purple-color;
+    text-decoration: none;
+}
+
+a:hover,
+a:focus {
+    color: $blue-color;
+}
+
+
+div.main > div, section.intro, aside.sidebar {
+    max-width: $max-width;
+
+    // background-color: red;
+    margin: 0 auto;
+}
+
+div.page-wrapper {
+    padding: 1rem;
+}
+
+.preamble > h3::after,
+.preamble > h3::before,
+.explanation > h3 + ::after,
+.participation > h3 + ::after,
+.benefits > h3 + ::after,
+.requirements > h3 + ::after {
+    content: "";
+    display: block;
+    background-size: cover;
+
+}
+
+// [role="banner"] > * {
+//     position: relative;
+//     z-index: 20;
+// }
+
+// [role="banner"] {
+//     height: auto;
+//     padding: 70px;
+//     background-image: url("./img/istockphoto-519526228-170667a.jpg");
+//     background-position: bottom bottom;
+//     background-size: cover;
+//     background-position: center;
+//     position: relative;
+
+//     // vertical-align: middle;
+// }
+
+.select,
+.archives,
+.resources {
+    visibility: hidden;
+    position: relative;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.select:after,
+.archives:after,
+.resources:after {
+    visibility: visible;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.select:after {
+    content: "Designs";
+}
+
+.archives:after {
+    content: "Archives";
+}
+
+.resources:after {
+    content: "Resources";
+}
+
+/*===================== Footer ========================*/
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $brown-color;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+/*Icons used from Fonts Awesome */
+a[class^="zen-"] {
+    display: inline-block;
+    text-indent: -9999px;
+    width: 82px;
+    height: 60px;
+    background-size: 82px 60px;
+    line-height: 1;
+    font-size: 5px;
+    transition: all 0.3s;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+a[class^="zen-"]:hover,
+a[class^="zen-"]:active {
+    filter: invert(33%) sepia(9%) saturate(5091%) hue-rotate(234deg) brightness(95%) contrast(84%);
+}
+
+/*===================== IMAGES ========================*/
+
+.preamble > h3::before {
+    background-image: url(./img/zen-garden2.jpg);
+}
+
+.preamble > h3::after {
+    background-image: url(./img/zen-garden3.jpg);
+}
+
+.explanation > h3 + ::after {
+    background-image: url(./img/explanation.jpg);
+}
+
+.participation > h3 + ::after {
+    background-image: url(./img/participation.jpg);
+}
+
+.benefits > h3 + ::after {
+    background-image: url(./img/benefits.jpg);
+}
+
+.requirements > h3 + ::after {
+    background-image: url(./img/requirements.jpg);
+}
+
+.zen-validate-html {
+    background-image: url(./img/html5.svg);
+    grid-column: 2;
+    justify-self: start;
+}
+
+.zen-validate-css {
+    background-image: url("img/css3.svg");
+    grid-column: 3;
+    justify-self: center;
+}
+
+.zen-license {
+    background-image: url("img/cc.svg");
+    grid-column: 4;
+    justify-self: center;
+}
+
+.zen-accessibility {
+    background-image: url("img/wheelchair.svg");
+    grid-column: 5;
+    justify-self: center;
+}
+
+.zen-github {
+    background-image: url("img/github.svg");
+    grid-column: 6;
+    justify-self: end;
+}
+
+.intro, .main > div {
+    background-color: white;
+}
+
+.main *::after {
+    width: 50%;
+    padding-bottom: 50%;
+    background-size: cover;
+    background-position: center;
+}
+
+
+/*--------------------------------------------------------------
+ *  CSS Grid layout for modern browsers:
+ *--------------------------------------------------------------*/
+@media (min-width: $max-width) {
+    /* Check for CSS Grid support: */
+    @supports (grid-area: auto) {
+        footer {
+            display: grid;
+            grid-template-columns: 1fr repeat(5, min($max-width / 5, $max-width)) 1fr;
+            height: 150px;
+        }
+    }
+}
