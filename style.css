@@ -177,7 +177,7 @@ a[class^="zen-"]:active {
 }
 
 .explanation > h3 + ::after {
-  background-image: url(./img/explanation.svg);
+  background-image: url(./img/explanation.jpg);
 }
 
 .participation > h3 + ::after {
