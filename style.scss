@@ -253,22 +253,22 @@ a[class^="zen-"]:active {
         }
 
         .page-wrapper section.intro {
-            grid-column: 1/7;
-            display: grid;
+            grid-column: 3/7;
+            // display: grid;
             grid-template-columns: subgrid;
 
         }
 
         section.intro header, section.intro div.summary {
-            grid-column: 3/6;
+            // grid-column: 2/7;
         }
 
         section.intro div.preamble {
-            grid-column: 3/5;
+            // grid-column: 3/5;
         }
 
         .page-wrapper div.main {
-            grid-column: 2/8;
+            grid-column: 2/7;
             grid-row: 2;
             display: grid;
             grid-template-columns: subgrid;
