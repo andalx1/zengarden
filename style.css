@@ -235,11 +235,50 @@ a[class^="zen-"]:active {
 @media (min-width: 1024px) {
   /* Check for CSS Grid support: */
   @supports (grid-area: auto) {
-    footer {
+    .page-wrapper {
       display: -ms-grid;
       display: grid;
-      -ms-grid-columns: 1fr (204.8px)[5] 1fr;
-          grid-template-columns: 1fr repeat(5, 204.8px) 1fr;
+      -ms-grid-columns: auto (204.8px)[5] auto;
+          grid-template-columns: auto repeat(5, 204.8px) auto;
+    }
+    .page-wrapper section.intro {
+      -ms-grid-column: 2;
+      -ms-grid-column-span: 5;
+      grid-column: 2/7;
+      -ms-grid-row: 1;
+      grid-row: 1;
+    }
+    .page-wrapper div.main {
+      -ms-grid-column: 1;
+      -ms-grid-column-span: 7;
+      grid-column: 1/8;
+      -ms-grid-row: 2;
+      grid-row: 2;
+      display: -ms-grid;
+      display: grid;
+      -ms-grid-columns: subgrid;
+          grid-template-columns: subgrid;
+    }
+    .page-wrapper aside.sidebar {
+      -ms-grid-column: 6;
+      grid-column: 6;
+      -ms-grid-row: 2;
+      grid-row: 2;
+    }
+    div.main > div {
+      -ms-grid-column: 2;
+      -ms-grid-column-span: 4;
+      grid-column: 2/6;
+    }
+    div.main > footer {
+      -ms-grid-column: 1;
+      -ms-grid-column-span: 7;
+      grid-column: 1/8;
+      display: -ms-grid;
+      display: grid;
+      -ms-grid-columns: subgrid;
+          grid-template-columns: subgrid;
+      width: 100%;
       height: 150px;
     }
   }
