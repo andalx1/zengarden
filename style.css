@@ -173,7 +173,7 @@ a[class^="zen-"]:active {
 }
 
 .preamble > h3::before {
-  background-image: url(./img/zen-garden3.jpg);
+  background-image: url(./img/rock.jpg);
 }
 
 .explanation > h3 + ::after {
