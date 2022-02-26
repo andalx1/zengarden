@@ -46,9 +46,12 @@ h3 {
   text-transform: uppercase;
   font-size: 1.2em;
   color: #ecdbb6;
-  margin-top: 3rem;
   margin-bottom: 1rem;
   background-color: #4974a5;
+}
+
+p:last-child {
+  margin-bottom: 3em;
 }
 
 ul li {
@@ -104,18 +107,6 @@ div.page-wrapper {
   left: 0;
 }
 
-.select:after {
-  content: "Designs";
-}
-
-.archives:after {
-  content: "Archives";
-}
-
-.resources:after {
-  content: "Resources";
-}
-
 /*===================== Footer ========================*/
 footer {
   display: -webkit-box;
@@ -153,12 +144,35 @@ a[class^="zen-"]:active {
           filter: invert(33%) sepia(9%) saturate(5091%) hue-rotate(234deg) brightness(95%) contrast(84%);
 }
 
-/*===================== IMAGES ========================*/
-.preamble > h3::before {
-  background-image: url(./img/zen-garden2.jpg);
+/*===================== ASIDE ========================*/
+.select:after {
+  content: "Designs";
 }
 
-.preamble > h3::after {
+.archives:after {
+  content: "Archives";
+}
+
+.resources:after {
+  content: "Resources";
+}
+
+/*===================== IMAGES ========================*/
+.main *::after {
+  width: 50%;
+  padding-bottom: 50%;
+  background-size: cover;
+  background-position: center;
+}
+
+.preamble h3::before {
+  width: 100%;
+  padding-bottom: 50%;
+  background-size: cover;
+  background-position: top;
+}
+
+.preamble > h3::before {
   background-image: url(./img/zen-garden3.jpg);
 }
 
@@ -222,6 +236,7 @@ a[class^="zen-"]:active {
   background-color: white;
 }
 
+<<<<<<< HEAD
 .main *::after {
   width: 50%;
   padding-bottom: 50%;
@@ -231,15 +246,72 @@ a[class^="zen-"]:active {
 
 /*--------------------------------------------------------------
  *  CSS Grid layout for modern browsers:
+=======
+/*--------------------------------------------------------------
+ *  CSS Grid layout for modern browsers:
+>>>>>>> 8b336a4333d234585212ef70c11478fb9748fd00
  *--------------------------------------------------------------*/
 @media (min-width: 1024px) {
   /* Check for CSS Grid support: */
   @supports (grid-area: auto) {
-    footer {
+    .page-wrapper {
       display: -ms-grid;
       display: grid;
-      -ms-grid-columns: 1fr (204.8px)[5] 1fr;
-          grid-template-columns: 1fr repeat(5, 204.8px) 1fr;
+      -ms-grid-columns: auto (204.8px)[5] auto;
+          grid-template-columns: auto repeat(5, 204.8px) auto;
+      -ms-grid-columns: (auto)[5];
+          grid-template-columns: repeat(5, auto);
+    }
+    .page-wrapper section.intro {
+      -ms-grid-column: 1;
+      -ms-grid-column-span: 6;
+      grid-column: 1/7;
+      display: -ms-grid;
+      display: grid;
+      -ms-grid-columns: subgrid;
+          grid-template-columns: subgrid;
+    }
+    section.intro header, section.intro div.summary {
+      -ms-grid-column: 3;
+      -ms-grid-column-span: 3;
+      grid-column: 3/6;
+    }
+    section.intro div.preamble {
+      -ms-grid-column: 3;
+      -ms-grid-column-span: 2;
+      grid-column: 3/5;
+    }
+    .page-wrapper div.main {
+      -ms-grid-column: 2;
+      -ms-grid-column-span: 6;
+      grid-column: 2/8;
+      -ms-grid-row: 2;
+      grid-row: 2;
+      display: -ms-grid;
+      display: grid;
+      -ms-grid-columns: subgrid;
+          grid-template-columns: subgrid;
+    }
+    .page-wrapper aside.sidebar {
+      -ms-grid-column: 6;
+      grid-column: 6;
+      -ms-grid-row: 2;
+      grid-row: 2;
+    }
+    div.main > div {
+      -ms-grid-column: 2;
+      -ms-grid-column-span: 4;
+      grid-column: 2/6;
+    }
+    div.main > footer {
+      -ms-grid-column: 1;
+      -ms-grid-column-span: 7;
+      grid-column: 1/8;
+      display: -ms-grid;
+      display: grid;
+      -ms-grid-columns: subgrid;
+          grid-template-columns: subgrid;
+      width: 100%;
       height: 150px;
     }
   }

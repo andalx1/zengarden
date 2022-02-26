@@ -65,9 +65,12 @@ h3 {
     text-transform: uppercase;
     font-size: 1.2em;
     color: $heading__color;
-    margin-top: 3rem;
+    // margin-top: 3rem;
     margin-bottom: 1rem;
     background-color: $bg-heading__color;
+}
+p:last-child {
+    margin-bottom: 3em;
 }
 
 ul li {
@@ -84,7 +87,6 @@ a:hover,
 a:focus {
     color: $blue-color;
 }
-
 
 div.main > div, section.intro, aside.sidebar {
     max-width: $max-width;
@@ -104,25 +106,7 @@ div.page-wrapper {
     content: "";
     display: block;
     background-size: cover;
-
 }
-
-// [role="banner"] > * {
-//     position: relative;
-//     z-index: 20;
-// }
-
-// [role="banner"] {
-//     height: auto;
-//     padding: 70px;
-//     background-image: url("./img/istockphoto-519526228-170667a.jpg");
-//     background-position: bottom bottom;
-//     background-size: cover;
-//     background-position: center;
-//     position: relative;
-
-//     // vertical-align: middle;
-// }
 
 .select,
 .archives,
@@ -140,18 +124,6 @@ div.page-wrapper {
     position: absolute;
     top: 0;
     left: 0;
-}
-
-.select:after {
-    content: "Designs";
-}
-
-.archives:after {
-    content: "Archives";
-}
-
-.resources:after {
-    content: "Resources";
 }
 
 /*===================== Footer ========================*/
@@ -183,13 +155,36 @@ a[class^="zen-"]:active {
     filter: invert(33%) sepia(9%) saturate(5091%) hue-rotate(234deg) brightness(95%) contrast(84%);
 }
 
-/*===================== IMAGES ========================*/
-
-.preamble > h3::before {
-    background-image: url(./img/zen-garden2.jpg);
+/*===================== ASIDE ========================*/
+.select:after {
+    content: "Designs";
 }
 
-.preamble > h3::after {
+.archives:after {
+    content: "Archives";
+}
+
+.resources:after {
+    content: "Resources";
+}
+
+/*===================== IMAGES ========================*/
+
+.main *::after {
+    width: 50%;
+    padding-bottom: 50%;
+    background-size: cover;
+    background-position: center;
+}
+
+.preamble h3::before {
+    width: 100%;
+    padding-bottom: 50%;
+    background-size: cover;
+    background-position: top;
+}
+
+.preamble > h3::before {
     background-image: url(./img/zen-garden3.jpg);
 }
 
@@ -243,23 +238,56 @@ a[class^="zen-"]:active {
     background-color: white;
 }
 
-.main *::after {
-    width: 50%;
-    padding-bottom: 50%;
-    background-size: cover;
-    background-position: center;
-}
-
-
 /*--------------------------------------------------------------
  *  CSS Grid layout for modern browsers:
  *--------------------------------------------------------------*/
 @media (min-width: $max-width) {
     /* Check for CSS Grid support: */
     @supports (grid-area: auto) {
-        footer {
+        .page-wrapper {
             display: grid;
-            grid-template-columns: 1fr repeat(5, min($max-width / 5, $max-width)) 1fr;
+            grid-template-columns: auto repeat(5, min($max-width / 5, $max-width)) auto;
+
+            grid-template-columns: repeat(5, auto);
+       
+        }
+
+        .page-wrapper section.intro {
+            grid-column: 1/7;
+            display: grid;
+            grid-template-columns: subgrid;
+
+        }
+
+        section.intro header, section.intro div.summary {
+            grid-column: 3/6;
+        }
+
+        section.intro div.preamble {
+            grid-column: 3/5;
+        }
+
+        .page-wrapper div.main {
+            grid-column: 2/8;
+            grid-row: 2;
+            display: grid;
+            grid-template-columns: subgrid;
+        }
+
+        .page-wrapper aside.sidebar {
+            grid-column: 6;
+            grid-row: 2;
+        }
+
+        div.main > div {
+            grid-column: 2/6;
+        }
+
+        div.main > footer {
+            grid-column: 1/8;
+            display: grid;
+            grid-template-columns: subgrid;
+            width: 100%;
             height: 150px;
         }
     }
